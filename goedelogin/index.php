@@ -40,6 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Uitloggen
+if (isset($_GET['uitloggen'])) {
+    session_destroy();
+    header("Location:index.php");
+    exit();
+}
+
 // Controleer of de gebruiker is ingelogd
 if (isIngelogd()) {
     // Haal de gebruikersgegevens op uit de sessie
